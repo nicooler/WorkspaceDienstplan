@@ -7,11 +7,14 @@
 package dp.gui;
 
 import dp.daba.DbCon;
+import static dp.daba.DbCon.getConnection;
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowListener;
 import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -32,11 +35,12 @@ import javax.swing.JTextField;
 
 public class Login{
     
+    // Parameter für SQL Querys
     Connection con;
     Statement st;
     ResultSet rs;
     
-    // Frame erstellen
+    // Variablen für Frame
     JFrame f = new JFrame("User Login");
     JLabel l = new JLabel("Username:");
     JLabel l1 = new JLabel("Password:");
@@ -45,14 +49,20 @@ public class Login{
     
     
     public Login() {
+       
+        // Methoden für Login Frame und Verbindung zur Datenbank
         connect();
         frame();
     }
-
+    
+    
+    
     public void connect()
     {
         try {
            con = getConnection();
+           //rs
+           //st
         } catch (Exception e) {
             
         }
@@ -70,42 +80,24 @@ public class Login{
         p.add(l);
         p.add(t);
         p.add(l1);
-        p.add()
+        p.add(p);
     
     }
-    private void initComponents() {
-
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                closeDialog(evt);
-            }
-        });
-
-        pack();
-    }                       
+                 
 
     /**
      * Closes the dialog
      */
-    private void closeDialog(java.awt.event.WindowEvent evt) {                             
-        setVisible(false);
-        dispose();
-    }                            
+//    private void closeDialog(java.awt.event.WindowEvent evt) {                             
+//        setVisible(false);
+//        dispose();
+//    }                            
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Login dialog = new Login(new Frame(), true);
-                dialog.addWindowListener(new WindowAdapter() {
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+       
             }
-        });
+       
     }       
-}
