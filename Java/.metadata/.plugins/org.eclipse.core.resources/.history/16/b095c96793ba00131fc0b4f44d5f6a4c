@@ -1,0 +1,253 @@
+package MovieSpotProgram;
+
+
+import java.awt.EventQueue;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Vector;
+
+
+
+import javax.swing.Box.Filler;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JButton;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.table.TableModel;
+import javax.swing.table.DefaultTableModel;
+
+import java.sql.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JTextField;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JTable;
+
+
+
+import com.mysql.jdbc.ResultSetMetaData;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.ListSelectionModel;
+
+//class MySubClass extends MySuperClass
+//{	
+//}    
+   
+
+
+public class ChooseCustomer extends JTable{
+
+	
+	private JTextField txtName;
+	static ResultSet result;
+	static ResultSet rs;
+	private javax.swing.JTable tableCustomers;
+	
+	
+	private javax.swing.JScrollPane jScrollPane1;
+    private JTable jTable1;
+	
+	
+	public ChooseCustomer() {
+		initialize();
+		
+	}
+
+	@SuppressWarnings("deprecation")
+	private void initialize() 
+	{
+		final JFrame meinJFrame = new JFrame();
+		meinJFrame.setVisible(true);
+        meinJFrame.setTitle("Choose Customer");
+        meinJFrame.setSize(1004, 549);
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+ 
+        JLabel frage = new JLabel("Please select the Customer:");
+        frage.setBounds(32, 11, 178, 14);
+        panel.add(frage);
+             
+        meinJFrame.getContentPane().add(panel);
+        
+        final JButton btnbernehmen = new JButton("search");
+        btnbernehmen.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		customerlist();
+        	}
+        });
+        btnbernehmen.addMouseListener(new MouseAdapter() {
+        	public void mouseReleased(MouseEvent arg0) {
+        		
+        	}
+        });
+        btnbernehmen.setBounds(364, 35, 121, 23);
+        panel.add(btnbernehmen);
+        
+        txtName = new JTextField();
+        txtName.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+					customerlist();
+				}
+			}
+		});
+        txtName.setBounds(152, 36, 145, 20);
+        panel.add(txtName);
+        txtName.setColumns(10);
+        
+        JScrollPane scrollPane_1 = new JScrollPane();
+        scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane_1.setBounds(32, 67, 905, 402);
+        panel.add(scrollPane_1);
+        
+        tableCustomers = new JTable();
+        scrollPane_1.setViewportView(tableCustomers);
+
+        
+        tableCustomers.setSelectionMode( ListSelectionModel.MULTIPLE_INTERVAL_SELECTION );
+        
+        
+        
+        JButton btnNewButton = new JButton("Back");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+				meinJFrame.setVisible(false);
+				Main main;
+				try {
+					main = new Main();
+					main.setVisible(true);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+        	}
+        });
+        btnNewButton.setBounds(29, 480, 107, 23);
+        panel.add(btnNewButton);
+        
+        JButton btnAccept = new JButton("Choose");
+        btnAccept.addMouseListener(new MouseAdapter() {
+        	public void mouseReleased(MouseEvent arg0) 
+        	{		
+        		if (tableCustomers.getSelectedRow() != -1)
+        		{
+        			int id = Integer.parseInt(tableCustomers.getValueAt(tableCustomers.getSelectedRow(),0) +"");
+
+
+        			// go to the next window to change customer data
+					
+					ChangeCustomer changecustomer = new ChangeCustomer(id);
+					changecustomer.setVisible(true);
+					meinJFrame.setVisible(false);
+        		}
+        		else
+        		{
+        			JOptionPane.showMessageDialog(null, "Please choose a customer", "Information", JOptionPane.INFORMATION_MESSAGE);
+        		}
+        	}
+        });
+        btnAccept.setBounds(149, 480, 89, 23);
+        panel.add(btnAccept);
+        
+        JLabel lblName = new JLabel("Surename:");
+        lblName.setBounds(71, 39, 71, 14);
+        panel.add(lblName);
+        
+	}
+
+
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+			customerlist();
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void customerlist() 
+	{		
+		try{
+			DatabaseConnection.getConnection();
+			java.sql.Statement st = DatabaseConnection.st;
+			
+			String name =txtName.getText()+"%";
+			String sql="";
+			
+			if(name.equals("%"))
+			{
+				sql = "SELECT Customer_ID, CTitle, CForename, CSurename, CBirthday, CMail FROM Customer;";
+			}
+			else if(!name.equals("%")  )
+			{
+				sql = "SELECT Customer_ID, CTitle, CForename, CSurename, CBirthday, CMail FROM Customer WHERE CSurename like '"+name+"';";
+			}
+			
+			
+			rs = st.executeQuery(sql);
+			java.sql.ResultSetMetaData md= rs.getMetaData();
+			
+			int columns = md.getColumnCount();
+			
+			DefaultTableModel model = new DefaultTableModel();
+			this.tableCustomers.setModel(model);
+			
+            //  Get column names
+            for (int i = 1; i <= columns; i++) {
+                model.addColumn(md.getColumnLabel(i));
+            }
+            //  Get row data
+            while (rs.next()) {
+               	Object[] rows = new Object[columns];
+
+                for (int i = 0; i < columns; i++) {
+                	rows[i] = rs.getObject(i+1);
+                }
+                model.addRow(rows);
+            }
+            this.tableCustomers.setModel(model);
+            this.tableCustomers.updateUI();
+            rs.close();
+            st.close();
+            
+            for (int i = 0; i <= tableCustomers.getRowCount(); i++)
+            {
+            	for (int j = 0; j <= 8; j++) 
+            	{
+            		tableCustomers.isCellEditable(i, j);            		
+            	}
+            }
+//            UNBDINGT DIE EDITIERBARKEIT ÄNDERN!!!!
+            
+		}
+		catch(Exception e)
+		{
+			
+		}
+
+	}
+
+	public boolean isCellEditable(int rowIndex, int colIndex)
+	{
+		return false;
+	}
+	
+	public void setVisible(boolean b) 
+	{
+
+	}
+}
