@@ -37,7 +37,7 @@ public class Start {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login(new Frame(), true).setVisible(true);
+                new Login();
             }
         });
     }
