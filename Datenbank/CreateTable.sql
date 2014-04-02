@@ -1,3 +1,7 @@
+﻿CREATE DATABASE  IF NOT EXISTS `dienstplan` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `dienstplan`;
+
 drop table IF EXISTS Account;
 drop table IF EXISTS Mitarbeiter;
 
