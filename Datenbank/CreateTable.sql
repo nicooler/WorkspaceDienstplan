@@ -10,10 +10,10 @@ MA_Id Int NOT NULL Auto_Increment,
 Vorname varchar (40) Not Null, 
 Nachname varchar(40) Not Null, 
 GebDatum date Not Null, 
-Straße varchar(45) Not Null, 
+Strasse varchar(45) Not Null, 
 Ort varchar(45) Not Null, 
 TelefonNr varchar (30) Not Null, 
-Beschäftigungsgrad varchar (45) Not null, 
+Beschaeftigungsgrad varchar (45) Not null, 
 Primary Key (MA_Id));
 
 create Table Account(
