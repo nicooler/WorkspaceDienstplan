@@ -14,17 +14,17 @@ Strasse varchar(45) Not Null,
 Ort varchar(45) Not Null, 
 TelefonNr varchar (30) Not Null, 
 Beschaeftigungsgrad varchar (45) Not null, 
-Primary Key (MA_Id));
-
-create Table Account(
-ACC_Id Int Not Null Auto_Increment,
-MA_Id Int Not Null ,
+Primary Key (MA_Id)
 Benutzername varchar (40) Not Null,
 Passwort varchar(40) Not Null,
+Rolle int()
+/*
+Rolle:0 = Admin
+Rolle:1 = Personalleitung
+Rolle:2 = Mitarbeiter
+/**/
+);
 
-Primary Key (ACC_Id));
-
-Alter table account add Foreign Key (MA_Id) references Mitarbeiter (MA_Id) on delete restrict on update restrict;
 
 
 
