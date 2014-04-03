@@ -46,6 +46,8 @@ public class MAverwalten extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
+		//Buttons
 		JButton maHinzufuegen = new JButton("Mitarbeiter loeschen");
 		maHinzufuegen.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){}});
@@ -61,6 +63,8 @@ public class MAverwalten extends JFrame {
 		contentPane.add(speichern);
 		
 		
+		
+		//Beschriftung
 		JLabel lblVorname = new JLabel("Vorname:");
 		lblVorname.setBounds(10, 85, 46, 14);
 		contentPane.add(lblVorname);
@@ -90,6 +94,8 @@ public class MAverwalten extends JFrame {
 		contentPane.add(lblBeschaeftigungsgrad);
 		
 		
+		
+		//Textfelder
 		txtVorname = new JTextField();
 		txtVorname.setBounds(152, 82, 313, 20);
 		contentPane.add(txtVorname);
@@ -120,6 +126,8 @@ public class MAverwalten extends JFrame {
 		txtOrt.setBounds(152, 157, 313, 20);
 		contentPane.add(txtOrt);
 		
+		
+		//Datum mit JSpinner
 		spinnerMonat = new JSpinner();
 		spinnerMonat.setModel(new SpinnerNumberModel(1, 1, 12, 1));
 		spinnerMonat.setBounds(276, 182, 46, 20);
