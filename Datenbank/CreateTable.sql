@@ -3,8 +3,6 @@ USE `dienstplan`;
 
 /*  Das Hier oben nicht auf der offiziellen Seite benutzen!/**/
 
-drop table IF EXISTS Account;
-
 drop table IF EXISTS Mitarbeiter;
 
 
