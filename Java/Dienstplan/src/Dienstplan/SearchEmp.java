@@ -147,7 +147,10 @@ public class SearchEmp extends JTable{
 
 
         			// zum fenster wechseln in dem der ma bearbeitet wird
-					
+        			MAverwalten ma ;
+    				ma = new MAverwalten(id);
+    				ma.setVisible(true);
+    				setVisible(false);
 					
         		}
         		else

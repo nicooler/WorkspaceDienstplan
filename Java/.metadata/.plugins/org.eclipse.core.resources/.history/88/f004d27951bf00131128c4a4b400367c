@@ -1,5 +1,6 @@
 package Dienstplan;
 
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +20,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
-public class MAverwalten extends JFrame {
+public class MAhinzufuegen extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField txtVorname;
@@ -30,19 +31,18 @@ public class MAverwalten extends JFrame {
 	private JTextField txtTelefonNr;
 	private JTextField txtBeschaeftigungsgrad;
 	
-	private int wid;
-	static ResultSet rs; 
+	
+
 	private JTextField txtJahr;
 	private JSpinner spinnerMonat;
 	private JSpinner spinnerTag;
-	private JTextField txtRolle;
 	private JTextField txtBenutzername;
+	private JTextField txtPasswort;
+	private JTextField txtRolle;
 
-	public MAverwalten(int id){
+	public MAhinzufuegen(){
 		
-		wid = id;
-		
-		setTitle("Mitarbeiter verwalten");
+		setTitle("Mitarbeiter hinzufuegen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 545, 475);
 		contentPane = new JPanel();
@@ -51,72 +51,29 @@ public class MAverwalten extends JFrame {
 		contentPane.setLayout(null);
 		
 		
-		//Buttons
-		JButton maHinzufuegen = new JButton("Mitarbeiter loeschen");
+		//buttons
+		JButton maHinzufuegen = new JButton("Hinzufuegen");
 		maHinzufuegen.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			
-			try{
-				
-				DatabaseConnection.getConnection();
-				java.sql.Statement st = DatabaseConnection.st;
-				
-					
-				String sqlInsert = ("DELETE FROM Mitarbeiter WHERE MA_Id="+wid+";");
-				
-				st.executeUpdate(sqlInsert);
-				 st.close(); 
-				 
-				Main main = new Main();
-				main.setVisible(true);
-				setVisible(false);
-				 
-		        }
-				catch (Exception ex) {
-			        JOptionPane.showMessageDialog(null, "Beim löschen ist ein Fehler aufgetreten","Information", JOptionPane.INFORMATION_MESSAGE); 
-
-			        }
+			try {
+				addworker();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			
 			
 		}});
 		
-		maHinzufuegen.setBounds(33, 370, 157, 23);
+		JButton btnZurueck = new JButton("Zurueck");
+		btnZurueck.setBounds(56, 369, 89, 23);
+		contentPane.add(btnZurueck);
+		
+		maHinzufuegen.setBounds(277, 369, 157, 23);
 		contentPane.add(maHinzufuegen);	
 		
-		JButton speichern = new JButton("Speichern");
-		speichern.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				
-				try {
-					changeworker();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}});
 		
-		speichern.setBounds(320, 370, 145, 23);
-		contentPane.add(speichern);
-		
-		JButton button = new JButton("Zurueck");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				Main main;
-				try {
-					main = new Main();
-					main.setVisible(true);
-					setVisible(false);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-
-			}
-		});
-		button.setBounds(210, 390, 89, 23);
-		contentPane.add(button);
-		
-		
-		
-		//Beschriftung
+		//Beschriftung 
 		JLabel lblVorname = new JLabel("Vorname:");
 		lblVorname.setBounds(10, 85, 46, 14);
 		contentPane.add(lblVorname);
@@ -134,7 +91,7 @@ public class MAverwalten extends JFrame {
 		contentPane.add(lblGebDat);
 		
 		JLabel lblGeburtsdatum = new JLabel("Geburtsdatum:");
-		lblGeburtsdatum.setBounds(10, 185, 121, 14);
+		lblGeburtsdatum.setBounds(10, 185, 99, 14);
 		contentPane.add(lblGeburtsdatum);
 		
 		JLabel lblTelefonNr = new JLabel("Telefon:");
@@ -145,15 +102,17 @@ public class MAverwalten extends JFrame {
 		lblBeschaeftigungsgrad.setBounds(10, 235, 121, 14);
 		contentPane.add(lblBeschaeftigungsgrad);
 		
-		JLabel lvlBenutzername = new JLabel("Benutzername:");
-		lvlBenutzername.setBounds(10, 263, 121, 14);
-		contentPane.add(lvlBenutzername);
+		JLabel lblBenutzername = new JLabel("Benutzername:");
+		lblBenutzername.setBounds(10, 260, 121, 14);
+		contentPane.add(lblBenutzername);
 		
-		JLabel lvlRolle = new JLabel("Rolle:");
-		lvlRolle.setBounds(10, 288, 46, 14);
-		contentPane.add(lvlRolle);
+		JLabel lblPasswort = new JLabel("Passwort:");
+		lblPasswort.setBounds(10, 285, 99, 14);
+		contentPane.add(lblPasswort);
 		
-		
+		JLabel lblRolle = new JLabel("Rolle:");
+		lblRolle.setBounds(10, 310, 46, 14);
+		contentPane.add(lblRolle);
 		
 		
 		//Textfelder
@@ -187,15 +146,20 @@ public class MAverwalten extends JFrame {
 		txtOrt.setBounds(152, 157, 313, 20);
 		contentPane.add(txtOrt);
 		
-		txtRolle = new JTextField();
-		txtRolle.setColumns(10);
-		txtRolle.setBounds(152, 285, 313, 20);
-		contentPane.add(txtRolle);
-		
 		txtBenutzername = new JTextField();
-		txtBenutzername.setColumns(10);
-		txtBenutzername.setBounds(152, 260, 313, 20);
+		txtBenutzername.setBounds(152, 257, 313, 20);
 		contentPane.add(txtBenutzername);
+		txtBenutzername.setColumns(10);
+		
+		txtPasswort = new JTextField();
+		txtPasswort.setBounds(152, 282, 313, 20);
+		contentPane.add(txtPasswort);
+		txtPasswort.setColumns(10);
+		
+		txtRolle = new JTextField();
+		txtRolle.setBounds(152, 307, 313, 20);
+		contentPane.add(txtRolle);
+		txtRolle.setColumns(10);
 		
 		
 		//Datum mit JSpinner
@@ -228,56 +192,21 @@ public class MAverwalten extends JFrame {
 		contentPane.add(lblJahr);
 		
 
+		
+
+		
+
+		
+		
 	
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setVisible(true);
+	}
 	
-	try{ // laden der daten
-        DatabaseConnection.getConnection();
-        java.sql.Statement st = DatabaseConnection.st;
-        
-
-        String sqlread = "SELECT Vorname, Nachname, GebDatum, Strasse, Ort, TelefonNr, Beschaeftigungsgrad, Benutzername, Passwort, Rolle from Mitarbeiter where MA_Id = "+ wid; 
-        rs = st.executeQuery(sqlread);
-
-        while(rs.next())
-		{
-
-		 	txtVorname.setText(rs.getString("Vorname"));
-		 	txtNachname.setText(rs.getString("Nachname"));
-		 	txtStrasse.setText(rs.getString("GebDatum"));
-		 	txtOrt.setText(rs.getString("Strasse"));
-		 	txtJahr.setText(rs.getString("Ort"));
-		 	txtTelefonNr.setText(rs.getString("TelefonNr"));
-		 	txtBeschaeftigungsgrad.setText(rs.getString("Beschaeftigungsgrad"));
-		 	txtBenutzername.setText(rs.getString("Benutzername"));
-		 	txtBenutzername.setText(rs.getString("Rolle"));
-		 	
-        	String sdate = rs.getString("GebDatum").substring(0,4);
-        	txtJahr.setText(sdate);
-        	int ddate = 0;
-        	ddate = Integer.parseInt(rs.getString("GebDatum").substring(5,7));
-        	spinnerMonat.setValue(ddate);
-        	ddate = Integer.parseInt(rs.getString("GebDatum").substring(8,10));
-        	spinnerTag.setValue(ddate);
-		}
-        
-        
-        }
-        catch (Exception ex) {
-        
-        }
-        
-        setVisible(false);
-    } 
-	
-	
-	
-	
-	public void changeworker() throws Exception{
+public void addworker() throws Exception{
 		
 		try{
-			
+		
 		DatabaseConnection.getConnection();
 		java.sql.Statement st = DatabaseConnection.st;
 		
@@ -297,13 +226,14 @@ public class MAverwalten extends JFrame {
 		String WPhone = txtTelefonNr.getText();
 		String WActivitylvl = txtBeschaeftigungsgrad.getText();
 		String WUsername = txtBenutzername.getText();
+		String WPassword = md5.md5(txtPasswort.getText());
 		String WRole = txtRolle.getText();
 		
 	
 
 		// schreiben der sql anweisung "mitarbeiteranlegen"
-		String sqlInsert = "UPDATE Mitarbeiter SET Vorname='"+WForename+"', Nachname='"+WSurename+"', GebDatum='"+WBirthday+"', Strasse='"+WStreet+"', Ort='"+WCity+
-				"', TelefonNr='"+WPhone+"', Beschaeftigungsgrad='"+WActivitylvl+"', Benutzername='"+WUsername+"', Benutzername='"+WRole+ "' WHERE MA_Id="+wid+";";
+		String sqlInsert = "CALL MitarbeiterAnlegen" + "('" + WForename +"','" + WSurename +"','" + WStreet +"','" + WCity +"','" + WBirthday +"','" + WPhone +"','" + 
+				WActivitylvl +"','" + WUsername +"','" + WPassword +"','" + WRole + "');";
 
 		
 		
@@ -322,22 +252,21 @@ public class MAverwalten extends JFrame {
 		 	txtTelefonNr.setText("");
 		 	txtBeschaeftigungsgrad.setText("");
 		 	txtBenutzername.setText("");
+		 	txtPasswort.setText("");
 		 	txtBenutzername.setText("");
 		 
 		 
 		}
 		catch (Exception ex) {
-	        JOptionPane.showMessageDialog(null, "Beim Ändern ist ein Fehler aufgetreten.","Information", JOptionPane.INFORMATION_MESSAGE); 
+	        JOptionPane.showMessageDialog(null, "Beim Anlegen ist ein Fehler aufgetreten.","Information", JOptionPane.INFORMATION_MESSAGE); 
 	            Main main = new Main(); 
 	            setVisible(false); 
 	        }
 		
-		
-		
-		
-		
+
 	
 	}
-	
-	
+
 }
+
+

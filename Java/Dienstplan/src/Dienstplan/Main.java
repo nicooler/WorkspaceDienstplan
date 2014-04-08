@@ -58,7 +58,10 @@ public class Main {
 			public void actionPerformed(ActionEvent arg0) {
 				
 //neue mitarbeiter hinzufügen
-				
+				MAhinzufuegen ma;
+				ma = new MAhinzufuegen();
+				ma.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnMitarbeiterHinzufuegen.setBounds(78, 172, 213, 126);

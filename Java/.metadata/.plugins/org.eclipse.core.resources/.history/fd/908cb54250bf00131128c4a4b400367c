@@ -1,5 +1,4 @@
-package Dienstplan;
-
+package guis;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,7 +19,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
-public class MAhinzufuegen extends JFrame {
+public class MAverwalten extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField txtVorname;
@@ -36,13 +35,10 @@ public class MAhinzufuegen extends JFrame {
 	private JTextField txtJahr;
 	private JSpinner spinnerMonat;
 	private JSpinner spinnerTag;
-	private JTextField txtBenutzername;
-	private JTextField txtPasswort;
-	private JTextField txtRolle;
 
-	public MAhinzufuegen(){
+	public MAverwalten(){
 		
-		setTitle("Mitarbeiter hinzufuegen");
+		setTitle("Mitarbeiter verwalten");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 545, 475);
 		contentPane = new JPanel();
@@ -51,42 +47,24 @@ public class MAhinzufuegen extends JFrame {
 		contentPane.setLayout(null);
 		
 		
-		//buttons
-		JButton maHinzufuegen = new JButton("Hinzufuegen");
+		//Buttons
+		JButton maHinzufuegen = new JButton("Mitarbeiter loeschen");
 		maHinzufuegen.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent e){
-			
-			try {
-				addworker();
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-			
-			
-		}});
+		public void actionPerformed(ActionEvent e){}});
 		
-		JButton btnZurueck = new JButton("Zurueck");
-		btnZurueck.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Main main;
-				try {
-					main = new Main();
-					main.setVisible(true);
-					setVisible(false);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnZurueck.setBounds(56, 369, 89, 23);
-		contentPane.add(btnZurueck);
-		
-		maHinzufuegen.setBounds(277, 369, 157, 23);
+		maHinzufuegen.setBounds(33, 370, 157, 23);
 		contentPane.add(maHinzufuegen);	
 		
+		JButton speichern = new JButton("Speichern");
+		speichern.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){}});
 		
-		//Beschriftung 
+		speichern.setBounds(320, 270, 145, 23);
+		contentPane.add(speichern);
+		
+		
+		
+		//Beschriftung
 		JLabel lblVorname = new JLabel("Vorname:");
 		lblVorname.setBounds(10, 85, 46, 14);
 		contentPane.add(lblVorname);
@@ -104,7 +82,7 @@ public class MAhinzufuegen extends JFrame {
 		contentPane.add(lblGebDat);
 		
 		JLabel lblGeburtsdatum = new JLabel("Geburtsdatum:");
-		lblGeburtsdatum.setBounds(10, 185, 99, 14);
+		lblGeburtsdatum.setBounds(10, 185, 46, 14);
 		contentPane.add(lblGeburtsdatum);
 		
 		JLabel lblTelefonNr = new JLabel("Telefon:");
@@ -112,20 +90,9 @@ public class MAhinzufuegen extends JFrame {
 		contentPane.add(lblTelefonNr);
 		
 		JLabel lblBeschaeftigungsgrad = new JLabel("Beschaeftigungsgrad:");
-		lblBeschaeftigungsgrad.setBounds(10, 235, 121, 14);
+		lblBeschaeftigungsgrad.setBounds(10, 235, 71, 14);
 		contentPane.add(lblBeschaeftigungsgrad);
 		
-		JLabel lblBenutzername = new JLabel("Benutzername:");
-		lblBenutzername.setBounds(10, 260, 121, 14);
-		contentPane.add(lblBenutzername);
-		
-		JLabel lblPasswort = new JLabel("Passwort:");
-		lblPasswort.setBounds(10, 285, 99, 14);
-		contentPane.add(lblPasswort);
-		
-		JLabel lblRolle = new JLabel("Rolle:");
-		lblRolle.setBounds(10, 310, 46, 14);
-		contentPane.add(lblRolle);
 		
 		
 		//Textfelder
@@ -159,21 +126,6 @@ public class MAhinzufuegen extends JFrame {
 		txtOrt.setBounds(152, 157, 313, 20);
 		contentPane.add(txtOrt);
 		
-		txtBenutzername = new JTextField();
-		txtBenutzername.setBounds(152, 257, 313, 20);
-		contentPane.add(txtBenutzername);
-		txtBenutzername.setColumns(10);
-		
-		txtPasswort = new JTextField();
-		txtPasswort.setBounds(152, 282, 313, 20);
-		contentPane.add(txtPasswort);
-		txtPasswort.setColumns(10);
-		
-		txtRolle = new JTextField();
-		txtRolle.setBounds(152, 307, 313, 20);
-		contentPane.add(txtRolle);
-		txtRolle.setColumns(10);
-		
 		
 		//Datum mit JSpinner
 		spinnerMonat = new JSpinner();
@@ -204,82 +156,10 @@ public class MAhinzufuegen extends JFrame {
 		lblJahr.setBounds(233, 185, 33, 14);
 		contentPane.add(lblJahr);
 		
-
-		
-
-		
-
-		
 		
 	
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setVisible(true);
 	}
-	
-public void addworker() throws Exception{
-		
-		try{
-		
-		DatabaseConnection.getConnection();
-		java.sql.Statement st = DatabaseConnection.st;
-		
-		
-		String day = "";
-		String month = "";
-		//wir brauchen eine zweistellige zahl bei monat und tag
-		if ((int)spinnerMonat.getValue() < 10) month ="0" + spinnerMonat.getValue(); else month = spinnerMonat.getValue()+""; 
-		if ((int)spinnerTag.getValue() < 10) day ="0" + spinnerTag.getValue(); else day = spinnerTag.getValue()+"";
-		
-		// lesen der textfelder
-		String WForename = txtVorname.getText();
-		String WSurename = txtNachname.getText();
-		String WStreet = txtStrasse.getText();
-		String WCity = txtOrt.getText();
-		String WBirthday = txtJahr.getText() + "-" + month + "-" + day;
-		String WPhone = txtTelefonNr.getText();
-		String WActivitylvl = txtBeschaeftigungsgrad.getText();
-		String WUsername = txtBenutzername.getText();
-		String WPassword = md5.md5(txtPasswort.getText());
-		String WRole = txtRolle.getText();
-		
-	
-
-		// schreiben der sql anweisung "mitarbeiteranlegen"
-		String sqlInsert = "CALL MitarbeiterAnlegen" + "('" + WForename +"','" + WSurename +"','" + WStreet +"','" + WCity +"','" + WBirthday +"','" + WPhone +"','" + 
-				WActivitylvl +"','" + WUsername +"','" + WPassword +"','" + WRole + "');";
-
-		
-		
-		//sql anweisung senden
-		st.executeUpdate(sqlInsert);
-		 st.close(); 
-		
-		 // zurücksetzen der daten damit nicht 2x angelegt werden kann
-		 	spinnerMonat.setValue(1);
-		 	spinnerTag.setValue(1);
-		 	txtVorname.setText("");
-		 	txtNachname.setText("");
-		 	txtStrasse.setText("");
-		 	txtOrt.setText("");
-		 	txtJahr.setText("");
-		 	txtTelefonNr.setText("");
-		 	txtBeschaeftigungsgrad.setText("");
-		 	txtBenutzername.setText("");
-		 	txtPasswort.setText("");
-		 	txtBenutzername.setText("");
-		 
-		 
-		}
-		catch (Exception ex) {
-	        JOptionPane.showMessageDialog(null, "Beim Anlegen ist ein Fehler aufgetreten.","Information", JOptionPane.INFORMATION_MESSAGE); 
-	            Main main = new Main(); 
-	            setVisible(false); 
-	        }
-		
-
-	
-	}
 
 }
-
-

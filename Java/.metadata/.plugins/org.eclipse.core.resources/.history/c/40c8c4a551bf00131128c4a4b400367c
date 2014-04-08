@@ -38,9 +38,7 @@ public class MAverwalten extends JFrame {
 	private JTextField txtRolle;
 	private JTextField txtBenutzername;
 
-	public MAverwalten(int id){
-		
-		wid = id;
+	public MAverwalten(int wid){
 		
 		setTitle("Mitarbeiter verwalten");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,63 +52,19 @@ public class MAverwalten extends JFrame {
 		//Buttons
 		JButton maHinzufuegen = new JButton("Mitarbeiter loeschen");
 		maHinzufuegen.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent e){
-			
-			try{
-				
-				DatabaseConnection.getConnection();
-				java.sql.Statement st = DatabaseConnection.st;
-				
-					
-				String sqlInsert = ("DELETE FROM Mitarbeiter WHERE MA_Id="+wid+";");
-				
-				st.executeUpdate(sqlInsert);
-				 st.close(); 
-				 
-				Main main = new Main();
-				main.setVisible(true);
-				setVisible(false);
-				 
-		        }
-				catch (Exception ex) {
-			        JOptionPane.showMessageDialog(null, "Beim löschen ist ein Fehler aufgetreten","Information", JOptionPane.INFORMATION_MESSAGE); 
-
-			        }
-			
-		}});
+		public void actionPerformed(ActionEvent e){}});
 		
 		maHinzufuegen.setBounds(33, 370, 157, 23);
 		contentPane.add(maHinzufuegen);	
 		
 		JButton speichern = new JButton("Speichern");
 		speichern.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				
-				try {
-					changeworker();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}});
+			public void actionPerformed(ActionEvent e){}});
 		
 		speichern.setBounds(320, 370, 145, 23);
 		contentPane.add(speichern);
 		
 		JButton button = new JButton("Zurueck");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				Main main;
-				try {
-					main = new Main();
-					main.setVisible(true);
-					setVisible(false);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-
-			}
-		});
 		button.setBounds(210, 390, 89, 23);
 		contentPane.add(button);
 		

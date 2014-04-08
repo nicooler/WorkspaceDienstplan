@@ -84,14 +84,7 @@ public class MAverwalten extends JFrame {
 		
 		JButton speichern = new JButton("Speichern");
 		speichern.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				
-				try {
-					changeworker();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}});
+			public void actionPerformed(ActionEvent e){}});
 		
 		speichern.setBounds(320, 370, 145, 23);
 		contentPane.add(speichern);
