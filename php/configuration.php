@@ -1,6 +1,6 @@
 <?php
 class JConfig {
-	
+/*Nicolas Balss, Version 1.0 UserStory 10 Task 11/**/	
 	
 
 	public $sitename = 'Dienstplan';

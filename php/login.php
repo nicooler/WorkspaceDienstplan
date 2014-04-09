@@ -8,7 +8,7 @@
 
 <body>
 <?php
- 
+ /*Nicolas Balss, Version 1.0 UserStory 10 Task 11/**/	
     # Connect to database
     include('../dbconnect.php');
  	if(!isset($_SESSION)){
@@ -83,7 +83,7 @@
         $_SESSION['ZIPCode'] = htmlspecialchars($row->ZIPCode);
         $_SESSION['City'] = htmlspecialchars($row->City);
         $_SESSION['Phone'] =htmlspecialchars($row->Phone);
-        $_SESSION['Newsletter'] = htmlspecialchars($row->Newsletter);
+  
        }
 	}
     # Close database connection

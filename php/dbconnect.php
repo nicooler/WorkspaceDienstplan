@@ -1,4 +1,5 @@
 <?php
+/*Nicolas Balss, Version 1.0 UserStory 10 Task 11/**/	
 include('configuration.php');
 $jc = new JConfig();
 
