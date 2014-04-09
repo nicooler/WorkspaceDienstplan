@@ -19,20 +19,13 @@ public class Main {
 	
 	static ResultSet rs;
 	static ResultSet rs2;
-	static int branchID;
 
-	/**
-	 * Create the application.
-	 * @throws SQLException 
-	 */
+
 	public Main() throws SQLException {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 * @throws SQLException 
-	 */
+
 	private void initialize() throws SQLException {
 		frmMain = new JFrame();
 		frmMain.setTitle("Main");
@@ -60,16 +53,19 @@ public class Main {
 		tabbedPane.addTab("Mitarbeiter", null, panel, null);
 		panel.setLayout(null);
 		
-		JButton btnMitarbeiterHinzufgen = new JButton("Mitarbeiter hinzufügen");
-		btnMitarbeiterHinzufgen.addActionListener(new ActionListener() {
+		JButton btnMitarbeiterHinzufuegen = new JButton("Mitarbeiter hinzufügen");
+		btnMitarbeiterHinzufuegen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 //neue mitarbeiter hinzufügen
-				
+				MAhinzufuegen ma;
+				ma = new MAhinzufuegen();
+				ma.setVisible(true);
+				setVisible(false);
 			}
 		});
-		btnMitarbeiterHinzufgen.setBounds(78, 172, 213, 126);
-		panel.add(btnMitarbeiterHinzufgen);
+		btnMitarbeiterHinzufuegen.setBounds(78, 172, 213, 126);
+		panel.add(btnMitarbeiterHinzufuegen);
 		
 		JButton btnMitarbeiterBearbeiten = new JButton("Mitarbeiter bearbeiten");
 		btnMitarbeiterBearbeiten.addActionListener(new ActionListener() {
@@ -91,7 +87,7 @@ public class Main {
 	}
 
 	public void setVisible(boolean b) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	}

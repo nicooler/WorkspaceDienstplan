@@ -1,5 +1,10 @@
 package Dienstplan;
 
+/*Autor Dominik Witka
+ * Vorübergehende Version um das Testen einzelner Funktionen zu ermöglichen
+ */
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -14,11 +14,11 @@ public abstract class DatabaseConnection {
     public static Connection getConnection() {
 
     	     
-        String intraUrl = "jdbc:mysql://85.13.149.241:3306/"; // intra MySQL server
+        String intraUrl = "jdbc:mysql://i-intra-02:3306/";  // intra MySQL server
         String localUrl = "jdbc:mysql://localhost:3306/"; // local MySQL server
-        String db = "d00e632c"; // Database name
-        String user = "d00e632c"; // a user on this db
-        String pw = "computer"; // his password
+        String db = "wfprj_wf5_05"; // Database name
+        String user = "wfprj_wf5_05"; // a user on this db
+        String pw = "projekt"; // his password
         
         Connection connect = null;
         
@@ -33,7 +33,7 @@ public abstract class DatabaseConnection {
 
         // Error: Connection failed    
         } catch (SQLException e) {
-        	JOptionPane.showMessageDialog(null, "Connection to database failed da ist was falsch", "Information", JOptionPane.INFORMATION_MESSAGE);
+        	JOptionPane.showMessageDialog(null, "Connection to database failed!", "Information", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         // other Errors    
         } catch (Exception e) {

@@ -1,3 +1,8 @@
+/*
+ * Erstellt von Dominik Witka am 02.04.2014
+ * 
+ */
+
 package Dienstplan;
 
 import java.awt.*;
@@ -15,16 +20,12 @@ import Dienstplan.md5;
 public class Login extends JFrame {
 	private JTextField txtUser;
 	private JPasswordField passwordField;
-	//ImageIcon iconSmall = new ImageIcon(Login.class.getResource("/images/LogoJPGsmall.png"));
 	
 	static ResultSet rs; 
 	static String user2; 
 	static java.sql.Statement st;
 
-	
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,9 +39,7 @@ public class Login extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public Login() {
 		
 		setTitle("Dienstplan Login");
@@ -122,7 +121,7 @@ public class Login extends JFrame {
 				String hpassword = md5.md5(password);
 		        
 		        //creating sql statement and executing it to the resultset 
-		        String sql = "select Employee_ID, EPassword from Employee where Employee_ID = "+user+" and EPassword = '"+hpassword+"'"; 
+		        String sql = "select Benutzername, Passwort from Account where Benutzername = "+user+" and Passwort = '"+hpassword+"'"; 
 		        rs = st.executeQuery(sql);
 		        if(rs.next()!= false) { 
 		        	//if user found, opening the main frame 

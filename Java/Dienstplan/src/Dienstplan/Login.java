@@ -100,7 +100,7 @@ public class Login extends JFrame {
 	}
 	
 		public void log(){
-			//variables
+			
 			String password = "";
 			String user = txtUser.getText();
 			 char[] pwd = passwordField.getPassword();
@@ -119,15 +119,16 @@ public class Login extends JFrame {
 		        
 		        
 				String hpassword = md5.md5(password);
-		        
-		        //creating sql statement and executing it to the resultset 
+				txtUser.setText(hpassword);
+				
+		        //sql anfrage wird erstellt
 		        String sql = "select Benutzername, Passwort from Account where Benutzername = "+user+" and Passwort = '"+hpassword+"'"; 
 		        rs = st.executeQuery(sql);
 		        if(rs.next()!= false) { 
-		        	//if user found, opening the main frame 
+		        	//falls der benutzer gefunden wird, wechseln auf hauptmenue
 		            Main main = new Main(); 
 		        } 
-		        else { //if wrong password or username 
+		        else { //falls die infos falsch sind, fehlermeldung
 		            JOptionPane.showMessageDialog(null, "Wrong User-ID or Password","Information", JOptionPane.INFORMATION_MESSAGE); 
 		            Login frame = new Login(); 
 		            frame.setVisible(true); 

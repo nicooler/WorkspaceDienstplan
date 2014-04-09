@@ -1,5 +1,8 @@
 package Dienstplan;
 
+/*
+ * 
+ */
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -218,6 +221,10 @@ public class MAhinzufuegen extends JFrame {
 	
 public void addworker() throws Exception{
 		
+	/*Autor Dominik Witka
+	 * 
+	 */
+	
 		try{
 		
 		DatabaseConnection.getConnection();

@@ -55,9 +55,7 @@ public class MAverwalten extends JFrame {
 		JButton maHinzufuegen = new JButton("Mitarbeiter loeschen");
 		maHinzufuegen.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			/*Autor Dominik Witka
-			 * 
-			 */
+			
 			try{
 				
 				DatabaseConnection.getConnection();
@@ -233,9 +231,7 @@ public class MAverwalten extends JFrame {
 	
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setVisible(true);
-	/*Autor Dominik Witka
-	 * 
-	 */
+	
 	try{ // laden der daten
         DatabaseConnection.getConnection();
         java.sql.Statement st = DatabaseConnection.st;
@@ -279,9 +275,7 @@ public class MAverwalten extends JFrame {
 	
 	
 	public void changeworker() throws Exception{
-		/*Autor Dominik Witka
-		 * 
-		 */
+		
 		try{
 			
 		DatabaseConnection.getConnection();
