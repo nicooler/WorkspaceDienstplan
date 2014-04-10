@@ -3,6 +3,8 @@ USE `dienstplan`;
 
 /*  Das Hier oben nicht auf der offiziellen Seite benutzen!/**/
 
+/*Daniela Nikolic*/
+
 drop table IF EXISTS Mitarbeiter;
 
 
