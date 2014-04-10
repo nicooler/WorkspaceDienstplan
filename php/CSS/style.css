@@ -1,7 +1,18 @@
+/*Florian Baumann*/
 #login{
 
 position:absolute;
 margin-left:50%;
 width:300px;
 padding-left:-150px;
+}
+
+#Dienstplan{
+
+
+}
+
+.main_headline
+{
+	text-align: center;
 }
