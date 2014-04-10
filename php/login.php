@@ -8,7 +8,9 @@
 
 <body>
 <?php
- /*Nicolas Balss, Version 1.0 UserStory 10 Task 11/**/	
+error_reporting(0);
+ /*Nicolas Balss, Version 1.0 UserStory 10 PHP Funktion Login
+ Task 11/**/	
     # Connect to database
     include('../dbconnect.php');
  	if(!isset($_SESSION)){
@@ -27,9 +29,9 @@
 		# for java byte[] decodedHash = Base64().decode(hash); 
 		
         # check database
-        $_sql = "SELECT * FROM customer WHERE
-                    Mail='$_username' AND
-                    password=SHA('$_passwort')
+        $_sql = "SELECT * FROM account WHERE
+                    Benutzername='$_username' AND
+                    Password=SHA('$_passwort')
                 LIMIT 1";
 
         # check if data is found
@@ -68,9 +70,9 @@
     echo "Willkommen auf im Forum Diesnplan<br>";
   
   #save session variables
-  $sql = "SELECT * FROM customer WHERE
-                    LastName='$_username' AND
-                    password=SHA('$_passwort')";
+  $sql = "SELECT * FROM Mitarbeiter WHERE
+                    Email='$_username' AND
+                    Passwort=SHA('$_passwort')";
   
     if($result = mysqli_query($hDB,$_sql)){
 	    if($row = mysqli_fetch_object($result)) {
@@ -89,7 +91,7 @@
     # Close database connection
     mysqli_close($hDB);
 	# Einfügen der nächsten Daten oder eine Weiterleitung
-	
+	echo "Login erfolgreich";
 	
 ?>
 
