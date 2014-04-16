@@ -43,7 +43,27 @@ Rolle:2 = Mitarbeiter
 /**/
 
 );
+create Table Dienstplan(
+week_Id Long NOT NULL Auto_Increment, 
 
+kw int(2),
+
+nachname varchar(40) Not Null, 
+
+working_date date Not Null, 
+
+description varchar(45) Not Null, 
+
+varchar(45) Not Null, 
+
+varchar (30) Not Null, 
+
+Beschaeftigungsgrad varchar (45) Not null, 
+
+Foreign Key (MA_Id),
+
+
+);
 
 
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TableLayout
+          
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
+					 <TableRow
+                         android:layout_height="wrap_content"
+                            android:layout_width="fill_parent"
+                            android:gravity="center_horizontal">
+
+                            <TextView
+                                android:id="@+id/TextView10" android:text="@string/monday"
+                                android:layout_weight="1" android:background="#dcdcdc"
+                                android:textColor="#000000"
+                                android:textSize="12sp"
+                                android:padding="10dip" android:gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/TextView11" android:text="@string/tuesday"
+                                android:layout_weight="1" android:background="#d3d3d3"
+                                android:textColor="#000000"
+                                android:textSize="12sp"
+                                android:padding="10dip" android:gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/TextView12" android:text="@string/wednesday"
+                                android:layout_weight="1" android:background="#cac9c9"
+                                android:textColor="#000000"
+                                android:padding="10dip" android:gravity="center"/>
+                            <TextView
+                                android:id="@+id/TextView13" android:text="@string/thirsday"
+                                android:layout_weight="1" android:background="#cac9c9"
+                                android:textColor="#000000"
+                                android:padding="10dip" android:gravity="center"/>
+                            <TextView
+                                android:id="@+id/TextView14" android:text="@string/frieday"
+                                android:layout_weight="1" android:background="#cac9c9"
+                                android:textColor="#000000"
+                                android:padding="10dip" android:gravity="center"/>
+                            <TextView
+                                android:id="@+id/TextView15" android:text="@string/saturday"
+                                android:layout_weight="1" android:background="#cac9c9"
+                                android:textColor="#000000"
+                                android:padding="10dip" android:gravity="center"/>
+                            <TextView
+                                android:id="@+id/TextView16" android:text="@string/sunday"
+                                android:layout_weight="1" android:background="#cac9c9"
+                                android:textColor="#000000"
+                                android:padding="10dip" android:gravity="center"/>
+
+                        </TableRow>
+        
+    </TableLayout>
+
+</LinearLayout>
