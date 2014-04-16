@@ -1,12 +1,15 @@
-﻿CREATE DATABASE  IF NOT EXISTS `dienstplan` /*!40100 DEFAULT CHARACTER SET utf8  */;
+
+
+CREATE DATABASE IF NOT EXISTS `dienstplan` /*!40100 DEFAULT CHARACTER SET utf8  */;
 USE `dienstplan`;
 
 /*  Das Hier oben nicht auf der offiziellen Seite benutzen!/**/
 
-/*Daniela Nikolic*/
+/*Daniela Nikolic version 1.0*/
+/* Nicolas Balss version 2.0 Table Dienstplan hinzugefügt*/
 
 drop table IF EXISTS Mitarbeiter;
-
+drop table IF EXISTS Dienstplan;
 
 create Table Mitarbeiter(
 MA_Id Int NOT NULL Auto_Increment, 
@@ -43,27 +46,32 @@ Rolle:2 = Mitarbeiter
 /**/
 
 );
-create Table Dienstplan(
-week_Id Long NOT NULL Auto_Increment, 
 
-kw int(2),
+create table Dienstplan(
+week_id int NOT NULL Auto_Increment, 
 
-nachname varchar(40) Not Null, 
+MA_Id int,
+
+kw int,
+
+work_id int not Null,
 
 working_date date Not Null, 
 
+startTime time Not Null, 
+
+endTime time Not Null, 
+
 description varchar(45) Not Null, 
 
-varchar(45) Not Null, 
+Foreign Key (MA_Id)REFERENCES Mitarbeiter(MA_Id), 
 
-varchar (30) Not Null, 
-
-Beschaeftigungsgrad varchar (45) Not null, 
-
-Foreign Key (MA_Id),
+Primary Key (week_id)
 
 
 );
+
+
 
 
 
