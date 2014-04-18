@@ -30,7 +30,7 @@ error_reporting(0);
 		
         # check database
         $_sql = "SELECT * FROM mitarbeiter WHERE
-                    Benutzername='$_username' AND
+                    Email='$_username' AND
                     Passwort=SHA('$_passwort')
                 LIMIT 1";
 

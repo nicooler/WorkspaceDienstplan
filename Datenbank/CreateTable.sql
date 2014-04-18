@@ -1,4 +1,4 @@
-
+/*DROP DATABASE dienstplan;/**/
 
 CREATE DATABASE IF NOT EXISTS `dienstplan` /*!40100 DEFAULT CHARACTER SET utf8  */;
 USE `dienstplan`;
@@ -28,14 +28,15 @@ TelefonNr varchar (30) Not Null,
 
 Beschaeftigungsgrad varchar (45) Not null, 
 
-Primary Key (MA_Id),
 
-Benutzername varchar (40) Not Null,
+Email varchar (40) Not Null,
 
 Passwort varchar(40) Not Null,
 
-Rolle int(4)
+Rolle int(4),
 
+Primary Key (MA_Id),
+UNIQUE (Email)
 /*
 
 Rolle:0 = Admin
