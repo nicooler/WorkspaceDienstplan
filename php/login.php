@@ -12,7 +12,7 @@ error_reporting(0);
  /*Nicolas Balss, Version 1.0 UserStory 10 PHP Funktion Login
  Task 11/**/	
     # Connect to database
-    include('../dbconnect.php');
+    include('dbconnect.php');
  	if(!isset($_SESSION)){
     session_start();
 }
@@ -29,9 +29,9 @@ error_reporting(0);
 		# for java byte[] decodedHash = Base64().decode(hash); 
 		
         # check database
-        $_sql = "SELECT * FROM account WHERE
+        $_sql = "SELECT * FROM mitarbeiter WHERE
                     Benutzername='$_username' AND
-                    Password=SHA('$_passwort')
+                    Passwort=SHA('$_passwort')
                 LIMIT 1";
 
         # check if data is found
@@ -42,7 +42,7 @@ error_reporting(0);
 	
         if ($_count > 0)
             {
-            echo "Login successful<br>";
+            echo "Login erfolgreich<br>";
 
             # save login
             $_SESSION['login'] = true;
@@ -51,7 +51,7 @@ error_reporting(0);
             }
         else
             {
-            echo "Login not correct.<br>";
+            echo "Login nicht korrekt.<br>";
 			
             }
         }
@@ -61,7 +61,7 @@ error_reporting(0);
         # close database connection
 		#hier noch die richtige html datei hinzufügen
         include("login-formular.html");
-		echo "<font color=grey>Register<a href=\"register.php\">click here!</a>"; 
+		
         mysqli_close($hDB);
         exit;
         }
@@ -70,21 +70,15 @@ error_reporting(0);
     echo "Willkommen auf im Forum Diesnplan<br>";
   
   #save session variables
-  $sql = "SELECT * FROM Mitarbeiter WHERE
-                    Email='$_username' AND
-                    Passwort=SHA('$_passwort')";
+
   
     if($result = mysqli_query($hDB,$_sql)){
 	    if($row = mysqli_fetch_object($result)) {
-    	$_SESSION['email'] = htmlspecialchars($row->Mail);
-        $_SESSION['Title'] = htmlspecialchars($row->Title);
-        $_SESSION['CustomerID'] = htmlspecialchars($row->CustomerID);
-        $_SESSION['FirstName'] = htmlspecialchars($row->FirstName);
-        $_SESSION['LastName'] =htmlspecialchars($row->LastName);
-        $_SESSION['Street'] = htmlspecialchars($row->Street);
-        $_SESSION['ZIPCode'] = htmlspecialchars($row->ZIPCode);
-        $_SESSION['City'] = htmlspecialchars($row->City);
-        $_SESSION['Phone'] =htmlspecialchars($row->Phone);
+    	
+        $_SESSION['MA_Id'] = htmlspecialchars($row->MA_Id);
+        $_SESSION['FirstName'] = htmlspecialchars($row->Vorname);
+        $_SESSION['LastName'] =htmlspecialchars($row->Nachname);
+    
   
        }
 	}
