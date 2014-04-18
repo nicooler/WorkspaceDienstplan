@@ -53,8 +53,6 @@ week_id int NOT NULL Auto_Increment,
 
 MA_Id int,
 
-kw int,
-
 work_id int not Null,
 
 working_date date Not Null, 
