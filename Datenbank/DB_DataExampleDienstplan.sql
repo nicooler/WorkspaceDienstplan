@@ -1,0 +1,10 @@
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (1,1,"2013-04-14","10:00","12:00","cursus vestibulum. Mauris magna. Duis dignissim tempor arcu. Vestibulum");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (10,2,"2013-04-14","12:00","18:00","Sed auctor");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (5,3,"2013-04-17","12:00","18:00","Vivamus rhoncus. Donec est. Nunc ullamcorper, velit");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (84,4,"2013-04-14","1395992774","1368243355","magna, malesuada vel, convallis in, cursus");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (65,5,"2013-04-16","12:00","18:00","eu odio tristique pharetra. Quisque");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (70,6,"2013-04-16","12:00","18:00","luctus vulputate, nisi sem semper erat, in consectetuer");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (68,7,"2013-04-21","12:00","18:00","varius orci, in consequat enim diam");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (63,8,"2013-04-19","10:00","12:00","sed, est. Nunc laoreet");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (91,9,"2013-04-20","10:00","12:00","aliquam adipiscing lacus.");
+INSERT INTO `dienstplan` (`MA_ID`,`work_id`,`working_date`,`startTime`,`endTime`,`description`) VALUES (95,10,"2013-04-18","10:00","12:00","In condimentum.");
