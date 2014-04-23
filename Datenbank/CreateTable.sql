@@ -8,10 +8,12 @@ USE `dienstplan`;
 /*Daniela Nikolic version 1.0*/
 /* Nicolas Balss version 2.0 Table Dienstplan hinzugefügt*/
 /* Arzu Camdal version 3.0 Table Kommentar hinzugefügt*/
+/*Daniela Nikolic version 4.0 Table Urlaubsantrag hinzugefügt*/
 
 drop table IF EXISTS Mitarbeiter;
 drop table IF EXISTS Dienstplan;
 drop table IF EXISTS Kommentar;
+drop table IF EXISTS Urlaubsantrag;
 
 create Table Mitarbeiter(
 MA_Id Int NOT NULL Auto_Increment, 
@@ -85,6 +87,22 @@ create table Kommentar (
 );
 
 
+CREATE TABLE Urlaubsantrag (
+    urlaub_id INT NOT NULL AUTO_INCREMENT,
+	
+	MA_Id INT NOT NULL,
+	
+	start_date DATE NOT NULL,
+	
+	end_date DATE NOT NULL,
+	
+	kmnt VARCHAR(100) DEFAULT NULL,
+	
+FOREIGN KEY (MA_Id) REFERENCES Mitarbeiter (MA_Id), 
+
+PRIMARY KEY (urlaub_id)) ;
+
+);
 
 
 
