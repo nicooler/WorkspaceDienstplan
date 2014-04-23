@@ -74,17 +74,19 @@ Primary Key (week_id)
 
 );
 
-create table Kommentar1 (
-  MA_Id int Not Null,
-  
-  Vorname_kom1 varchar (40),
-  
-  Text1 text Not Null,
-  
-  Foreign Key (MA_Id) REFERENCES Mitarbeiter (MA_Id),
-  
-  Primary Key (MA_Id)
-);
+CREATE TABLE Kommentar (
+
+	komm_id INT NOT NULL AUTO_INCREMENT,
+	
+	MA_Id INT NOT NULL,
+	
+	vorname_komm VARCHAR(40) NOT NULL,
+	
+	text_komm TEXT NOT NULL,
+	
+FOREIGN KEY (MA_Id) REFERENCES Mitarbeiter (MA_Id), 
+
+PRIMARY KEY (komm_id)) ;
 
 
 CREATE TABLE Urlaubsantrag (
