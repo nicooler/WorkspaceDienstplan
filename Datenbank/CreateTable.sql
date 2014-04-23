@@ -12,7 +12,7 @@ USE `dienstplan`;
 
 drop table IF EXISTS Mitarbeiter;
 drop table IF EXISTS Dienstplan;
-drop table IF EXISTS Kommentar;
+drop table IF EXISTS Kommentar1;
 drop table IF EXISTS Urlaubsantrag;
 
 create Table Mitarbeiter(
@@ -74,12 +74,12 @@ Primary Key (week_id)
 
 );
 
-create table Kommentar (
+create table Kommentar1 (
   MA_Id int Not Null,
   
-  Vorname_kom varchar (40),
+  Vorname_kom1 varchar (40),
   
-  Text text Not Null,
+  Text1 text Not Null,
   
   Foreign Key (MA_Id) REFERENCES Mitarbeiter (MA_Id),
   
