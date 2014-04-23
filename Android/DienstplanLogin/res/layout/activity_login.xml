@@ -1,3 +1,10 @@
+<!-- /*
+ Author: Nicolas Balss , 
+ Userstory: 320 Als Mitarbeiter möchte ich mich über mein Android smartphone einloggen 
+ Version: 1.0
+ 
+ /**/ -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,7 +13,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Login" >
+    tools:context=".Login"
+    android:background="#3b3b3b" >
 
    <TextView
       android:id="@+id/textView1"
