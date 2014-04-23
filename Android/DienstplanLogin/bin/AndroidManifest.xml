@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- /*
+ Author: Nicolas Balss , 
+ Userstory: 320 Als Mitarbeiter möchte ich mich über mein Android smartphone einloggen 
+ Version: 1.0
+ 
+ /**/ -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dienstplanlogin"
     android:versionCode="1"
