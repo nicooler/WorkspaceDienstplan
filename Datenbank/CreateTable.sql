@@ -7,9 +7,11 @@ USE `dienstplan`;
 
 /*Daniela Nikolic version 1.0*/
 /* Nicolas Balss version 2.0 Table Dienstplan hinzugefügt*/
+/* Arzu Camdal version 3.0 Table Kommentar hinzugefügt*/
 
 drop table IF EXISTS Mitarbeiter;
 drop table IF EXISTS Dienstplan;
+drop table IF EXISTS Kommentar;
 
 create Table Mitarbeiter(
 MA_Id Int NOT NULL Auto_Increment, 
@@ -68,6 +70,18 @@ Foreign Key (MA_Id)REFERENCES Mitarbeiter(MA_Id),
 Primary Key (week_id)
 
 
+);
+
+create table Kommentar (
+  MA_Id int Not Null,
+  
+  Vorname_kom varchar (40),
+  
+  Text text Not Null,
+  
+  Foreign Key (MA_Id) REFERENCES Mitarbeiter (MA_Id),
+  
+  Primary Key (MA_Id)
 );
 
 
