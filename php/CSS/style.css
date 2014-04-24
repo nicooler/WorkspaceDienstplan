@@ -1,4 +1,9 @@
-/*Florian Baumann*/
+/*Autor: Florian Baumann, Version 2 */
+
+a:link { color: #000000 }
+a:visited { color: #000000 }
+a:active { color: #000000 }
+
 #login{
 
 position:absolute;
@@ -9,7 +14,30 @@ padding-left:-150px;
 
 #Dienstplan{
 
+}
 
+#header{
+
+}
+
+.pwchange_data
+{
+	text-align:right;
+	vertical-align:top;
+}
+
+.head_title
+{
+width:"25";
+margin-top: 10px;
+font-family:Verdana;
+font-size: 200%;
+}
+
+.navigation_bar
+{
+	font-family: Arial Narrow,Helvetica,Eras Medium ITC;
+	font-size:20px;
 }
 
 .main_headline
