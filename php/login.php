@@ -46,7 +46,7 @@ error_reporting(0);
 
             # save login
             $_SESSION['login'] = true;
-			
+			$_SESSION['Name'] = Name;
             
             }
         else
