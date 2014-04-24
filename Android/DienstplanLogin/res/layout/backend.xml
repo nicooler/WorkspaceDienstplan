@@ -3,7 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+<!-- /*
+ Author: Nicolas Balss , 
+ Userstory: 320 Als Mitarbeiter möchte ich mich über mein Android smartphone einloggen 
+ Version: 1.0
+ 
+ /**/ -->
     <TableLayout
           
             android:layout_width="match_parent"
