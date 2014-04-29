@@ -10,26 +10,26 @@
  */
 	include 'authent.php';
 	
-	// Retrieve our data from POST.
+	// Unsere Daten von POST.
 	$vacStartDate = $_POST['start_date'];
 	$vacEndDate = $_POST['end_date'];
 	$vacCmnt = $_POST['comment'];
 	
-	// Checking user input...
+	// Benutzereingaben überprüfen...
 	if($vacStartDate == '' or $vacEndDate == '') {
 		header('Location: urlaubsantrag_form.php');  
 		exit;
 	}
-	// database connection details.
+	// DB Verbindung
 	include 'dbconnect.php';
 	
-	// Insert data into table Urlaubsantrag.
+	// Daten in die Tabelle Urlaubsantrag einfügen
 	$user_id = $_SESSION['MA_Id'];
 	$query = "INSERT INTO Urlaubsantrag ( MA_Id, start_date, end_date, kmnt ) VALUES ( '$user_id', '$vacStartDate', '$vacEndDate', '$vacCmnt' );";
 	$hDB->query($query);
 	$hDB->close();;
 	
-	// Request sent successfully.
+	// Erfolgreich versendet
 	$_SESSION['Success_status'] = TRUE;
     header('Location: urlaubsantrag_form.php'); 
 	
