@@ -2,16 +2,20 @@
 /*Autor: Arzu Camdal
  * Version 1.0
  * Version 2.0 bearbeitet am 24.04.2014
+ * Version 3.0 bearbeitet am 29.04.2014
  * Userstory: 341 Nachrichten PHP (Kommentarfeld) 
  * Arbeitszeit 10h
  * 
  */
-
+	
+	include 'header.php';
 	// Authentifikation wird geprüft
-	include 'authent.php';		
+	//include 'authent.php';		
 	
 	// DB Verbindung
-	include 'dbconnect.php';			
+	//include 'dbconnect.php';	
+
+
 	
 	$user_name = $_SESSION['FirstName'];
 	$user_id = $_SESSION['MA_Id'];
@@ -30,20 +34,24 @@
 	
 	if (isset($user_name)) {
 		echo "
+			<table border='0'>
+			<div class='Dfont'>
 			<h2> Kommentar verfassen: </h2><br />
-			<form action='kommentar.php' method='post'>
+			<form action='kommentar.php' method='post' >
 				Name: <input type='text' name='name' value='".$user_name."' readonly><br />
 				Kommentar:<br />
-				<textarea name='text' rows='7' cols='70' wrap='hard' required></textarea><br />
+				<textarea name='text' rows='5' cols='30' wrap='hard' required></textarea><br />
 				<input type='submit' name='submit' value='Absenden'>
 			</form>
+			</div>
+			</table>
 		";
 	}
 	else {
 		echo "Nur angemeldete Benutzer können Kommentare verfassen!<br />"; 
 	}
 	echo"<hr>";
-	echo "<h2>Kommentare:</h2> <br>";
+	echo "<div class='Dfont'><h2>Kommentare:</h2> </div><br>";
 	$query = "SELECT * FROM Kommentar ORDER BY komm_id DESC;" ;   //  DESC für das Schreiben der Kommentare mit der last_in-first_out Methode
 	if( !$result = $hDB->query($query) ) {                                  
 		die('Es ist ein Fehler aufgetreten [' . $hDB->error . ']');  //Fehler bei der Ausführung der query
@@ -55,12 +63,14 @@
 			$name = $row['vorname_komm'];
 			$text = $row['text_komm'];
 			echo "
+				<div class='Dfont'>
 				<tr>
 					<td>Kommentar von: $name</td>
 				</tr>
 				<tr>
 					<td>$text</td>
 				</tr>
+				</div>
 			";
 		}
 		// in der while ($row..) werden alle Kommentare angezeigt, die in der daba drin sind
