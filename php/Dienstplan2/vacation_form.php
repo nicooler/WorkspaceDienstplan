@@ -27,30 +27,22 @@
 	<body>
 		
 		<table width="100%" height="600" border="0" cellspacing="0" cellpadding="0">
-			<!--<tr style="background-color:#ffffff">
-				<td width="25%" valign="top" align="left">
-					<a href = "logout.php">[To Login Page]</a>
-				</td>
 				<td style="text-align:center" width="25%">
 					<?php
-						/*if( isset($_SESSION['Success_status']) ) {
+						if( isset($_SESSION['Success_status']) ) {
 							echo "<font size='4' color='red'><b><i>Antrag erfolgreich gesendet!</i></b></font>";
 							unset($_SESSION['Success_status']);
-						} */
+						} 
 					?>
 				</td>
-				<td width="25%" valign="top" align="right">
-					
-					<a href = "logout.php">[Log out]</a>
-				</td>
-			</tr>-->
+				
 			<tr style="background-color:#ffffff">
 				<td width="25%"></td>
 				<td width="50%">
-					<table style="background-color:#CCFF99" width="100%" height="300" border="0">
+					<table style="background-color:#E1F1F1" class="Dfont" width="100%" height="300" border="0">
 							<tr>
 								<th colspan="2">
-									<h2><FONT COLOR="8B0000">Urlaubsantrag</FONT></h2>
+									<h2><FONT COLOR="#000000">Urlaubsantrag</FONT></h2>
 								</th>
 							</tr>
 						<form name="vac_req" action="urlaubsantrag.php" method="post">
