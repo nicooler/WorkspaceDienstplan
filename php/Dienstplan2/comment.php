@@ -37,7 +37,7 @@
 			<table border='0'>
 			<div class='Dfont'>
 			<h2> Kommentar verfassen: </h2><br />
-			<form action='kommentar.php' method='post' >
+			<form action='comment.php' method='post' >
 				Name: <input type='text' name='name' value='".$user_name."' readonly><br />
 				Kommentar:<br />
 				<textarea name='text' rows='5' cols='30' wrap='hard' required></textarea><br />
