@@ -17,7 +17,7 @@
 	
 	// Checking user input...
 	if($vacStartDate == '' or $vacEndDate == '') {
-		header('Location: urlaubsantrag_form.php');  
+		header('Location: vacation_form.php');  
 		exit;
 	}
 	// database connection details.
@@ -31,6 +31,6 @@
 	
 	// Request sent successfully.
 	$_SESSION['Success_status'] = TRUE;
-    header('Location: urlaubsantrag_form.php'); 
+    header('Location: vacation_form.php'); 
 	
 ?>
