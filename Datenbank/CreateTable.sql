@@ -9,7 +9,7 @@
 
 
 
-
+drop table IF EXISTS Message;
 drop table IF EXISTS MitarbeiterArbeiten;
 drop table IF EXISTS Dienstplan;
 drop table IF EXISTS Dienst;
