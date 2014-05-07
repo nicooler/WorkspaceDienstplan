@@ -1,0 +1,160 @@
+/*Autor: Florian Baumann,
+Version: 3,
+Userstory: 410 Als Mitarbeiter möchte ich ein ansprechendes und einheitliche Design der Website
+Zeitaufwand Userstory: 4h
+Task:
+Zeitaufwand angezeigter Code: 1h
+Beschreibung: CSS Datei wurde überabeitern, neue Klassen wurden erstellt und eingebunden, dazu noch kommentiert.*/
+
+a:link { color: #000000 }
+a:visited { color: #000000 }
+a:active { color: #000000 }
+
+#login{
+
+position:absolute;
+margin-left:50%;
+width:300px;
+padding-left:-150px;
+}
+
+.workmateset_data
+{
+	text-align:right;
+	vertical-align:top;
+	font-family: Arial Narrow,Helvetica,Eras Medium ITC;
+}
+
+.work_petition
+{
+	text-align:right;
+	vertical-align:top;
+	font-family: Arial Narrow,Helvetica,Eras Medium ITC;
+}
+
+.pwchange_data
+{
+	text-align:right;
+	vertical-align:top;
+	font-family: Arial Narrow,Helvetica,Eras Medium ITC;
+}
+
+.head_title
+{
+width:"25";
+margin-top: 10px;
+font-family:Verdana;
+font-size: 200%;
+}
+
+.navigation_bar
+{
+	font-family: Arial Narrow,Helvetica,Eras Medium ITC;
+	font-size:20px;
+}
+
+.main_headline
+{
+	font-family: Arial Narrow,Helvetica,Eras Medium ITC;
+	text-align: center;
+}
+
+.mainColorFont
+{
+	color:#57A7D6;
+}
+
+.innerDailyShiftOnAll
+{
+	font-family: Verdana;
+	font-size:15px;
+}
+
+/* Formatiert Felder von Schichten in Wochenschichten alle */
+.innerDailyShiftOffAll
+{
+	height:200px; 
+	border-bottom:1px solid black;
+}
+
+/* Formatiert Felder von Bezeichnung in Wochenschichten alle */
+.innerTableShiftDescriptionAll
+{
+	height:200px; 
+	border-bottom:1px solid black;
+}
+
+/*Formatiert Felder in Wochenschichten alle */
+.dailyShiftTableContentAll
+{
+	height: 200px;
+	background-color:#57A7D6; 
+	border-bottom:1px solid black
+}
+
+/* Formatiert die Tagesangaben in der Tabelle Wochenschichten*/
+.weekDayView
+{
+	font-family: Verdana;
+	font-size:15px;
+}
+
+/*Formatiert die Bezeichnungen der Schichten in der Tabelle Wochenschichten */
+.shiftDescriptionTableContent
+{
+	font-family: Verdana;
+	text-align: center;
+	font-size:15px;
+}
+
+/* Formatiert die Felder in der die Schichten angezeigt werden */
+.dailyShiftTableContent
+{
+	font-family: Verdana;
+	text-align: center;
+	font-size:20px;
+	color: red;
+}
+
+/* Oberste gesamt Tabelle */
+.weekMainTable
+{
+	border-collapse:collapse;
+	border-bottom-width: 0px;
+}
+
+/* Gesamte Tabelle für SchichtBezeichnung */
+.tableShiftDescription
+{
+	border-collapse:collapse;
+	
+}
+
+/* Innere Felder der Tabelle SchichtBezeichnung */
+.innerTableShiftDescription
+{
+	height:100px; 
+	border-bottom:1px solid black
+}
+
+/* Gesamt Tabelle für die einzelnen Ausgaben der Schichten*/
+.dailyShift
+{
+width:100%; 
+border-collapse:collapse;
+}
+
+/* Feld das Schicht anzeigt */
+.innerDailyShiftON
+{
+background-color:#57A7D6;
+height:100px; 
+border-bottom:1px solid black
+}
+
+/* Feld das keine Schicht anzeigt */
+.innerDailyShiftOFF
+{
+height:100px; 
+border-bottom:1px solid black;
+}
