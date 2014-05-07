@@ -6,7 +6,7 @@
  *
  * Urlaubsantrag 
  *
- * Version 1.0 
+ * Version 2.0 - bearbeitet
  -->
  
 <?php
@@ -37,10 +37,10 @@
 								echo "<font size='4' style='color:blue'><b><i>Antrag erfolgreich gesendet!</i></b></font>";
 							}
 							elseif ( $_SESSION['vac_request_status'] == -1 ) {
-								echo "<font size='4' style='color:blue'><b><i>Your request date is older than current date, please try again.</i></b></font>";
+								echo "<font size='4' style='color:blue'><b><i>Das Datum ist abgelaufen, bitte versuchen Sie es nocheinaml.</i></b></font>";
 							}
 							elseif ( $_SESSION['vac_request_status'] == -2 ) {
-								echo "<font size='4' style='color:blue'><b><i>Already exists one vacation request!</i></b></font>";
+								echo "<font size='4' style='color:blue'><b><i>Es existiert bereits eine Anfrage!</i></b></font>";
 							}
 							unset($_SESSION['vac_request_status']);
 						}
@@ -54,7 +54,7 @@
 							elseif ($check_granted == 0) {
 								echo "<font size='4' ><b><i>Your vacation request for ".date("d-m-Y", $req_date)." is NOT granted.</i></b></font><br />";
 							}
-							// Show only once notification about granted (or not) vacation.
+							// Zeigt Benachrichtung an, entweder genehmigt oder nicht
 							notification_change ($hDB, $req_date);
 						}
 						
