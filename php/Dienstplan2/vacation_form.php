@@ -19,9 +19,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Urlaubsntrag</title>
-		<!--<style>
-			a:link {color: #33CC33};
-		</style>-->
 		
 	</head>
 	<body>

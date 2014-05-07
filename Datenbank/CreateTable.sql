@@ -4,8 +4,9 @@
 /*Daniela Nikolic version 1.0*/
 /* Nicolas Balss version 2.0 Table Dienstplan hinzugefügt*/
 /* Arzu Camdal version 3.0 Table Kommentar hinzugefügt*/
-/*Daniela Nikolic version 4.0 Table Urlaubsantrag hinzugefügt*/
+/*Daniela Nikolic version 4.1 Table Urlaubsantrag bearbeitet (4.0 hinzugefügt) */
 /*Arzu Camdal Version 5.0 Table Message hinzugefügt*/
+
 
 
 
@@ -81,6 +82,11 @@ CREATE TABLE Urlaubsantrag (
 	end_date DATE NOT NULL,
 	
 	kmnt VARCHAR(100) DEFAULT NULL,
+	
+	urlaub_genehmigt TINYINT DEFAULT -1,	/* -1=in bearbeitung,  0=nicht genehmigt,  1=genehmigt */
+
+	user_notified BOOL DEFAULT 0,			/* 0=Benutzer nicht benachrichtigt,  1=benachrichtigt*/
+	
 	
 FOREIGN KEY (MA_Id) REFERENCES Mitarbeiter (MA_Id), 
 PRIMARY KEY (urlaub_id)) ;
