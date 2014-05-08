@@ -9,7 +9,11 @@
 
 
 
+<<<<<<< .merge_file_a08640
 
+=======
+drop table IF EXISTS Message;
+>>>>>>> .merge_file_a10088
 drop table IF EXISTS MitarbeiterArbeiten;
 drop table IF EXISTS Dienstplan;
 drop table IF EXISTS Dienst;
